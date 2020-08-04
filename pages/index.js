@@ -15,7 +15,7 @@ export default function IndexPage() {
     <form
       className='flex flex-wrap h-full w-full justify-center items-center'
       onSubmit={onSubmit}>
-      <h1 className='w-full text-6xl text-center text-accent-1'>
+      <h1 className='z-50 w-full text-6xl text-center text-accent-1'>
         What does joy feel like for you?
       </h1>
       <span className='w-full mx-10 z-auto'>
