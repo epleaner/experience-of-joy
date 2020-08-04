@@ -1,0 +1,53 @@
+@tailwind base;
+
+/* Write your own custom base styles here */
+html,
+body,
+#__next {
+  height: 100%;
+  width: 100%;
+}
+
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
+/* Write you own custom component styles here */
+.btn-blue {
+  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+}
+
+.overlay-input-field {
+  border-bottom: 0.2rem solid rgba(255, 216, 136, 1);
+  border-top: 0.2rem solid rgba(0, 0, 0, 0);
+}
+
+.overlay-input-field:focus {
+  outline: none;
+  border-bottom: 0.2rem solid rgba(0, 0, 0, 0);
+}
+
+.overlay-input-label::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: rgba(199, 241, 243, 0.5);
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.overlay-input-field:focus + .overlay-input-label::after {
+  opacity: 1;
+}
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
+
+/* Your own custom utilities */
