@@ -1,7 +1,10 @@
 import { useState, useCallback, useMemo } from 'react';
+import { useRouter } from 'next/router';
+
 import { AiOutlineLoading3Quarters, AiOutlineHeart } from 'react-icons/ai';
 
 export default function ExperiencesForm() {
+  const router = useRouter();
   const [text, setText] = useState('');
   const [formState, setFormState] = useState('');
 
@@ -19,8 +22,9 @@ export default function ExperiencesForm() {
         method: 'PUT',
         body: text,
       });
-      console.log(res);
       setFormState('success');
+
+      router.push('/experiences');
     },
     [text]
   );

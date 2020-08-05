@@ -1,4 +1,4 @@
-import ExperiencesForm from '@components/experiencesForm';
+import ExperiencesForm from '@components/ExperiencesForm';
 
 export default function IndexPage() {
   return <ExperiencesForm />;
