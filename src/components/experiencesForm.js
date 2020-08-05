@@ -1,16 +1,26 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
+import { AiOutlineLoading3Quarters, AiOutlineHeart } from 'react-icons/ai';
 
 export default function ExperiencesForm() {
   const [text, setText] = useState('');
+  const [formState, setFormState] = useState('');
+
+  const submitDisabled = useMemo(
+    () => !text.length || formState === 'submitting' || formState === 'success',
+    [text, formState]
+  );
 
   const onSubmit = useCallback(
     async (e) => {
       e.preventDefault();
+      setFormState('submitting');
+
       const res = await fetch('/api/experiences', {
         method: 'PUT',
         body: text,
       });
       console.log(res);
+      setFormState('success');
     },
     [text]
   );
@@ -33,10 +43,16 @@ export default function ExperiencesForm() {
       </span>
       <button
         type='submit'
-        disabled={!text.length}
+        disabled={submitDisabled}
         tabIndex={2}
-        className='z-50 disabled:opacity-25 border-none px-8 py-2 mx-2 my-1 uppercase tracking-wide font-bold outline-none cursor-pointer relative transition-all duration-300 '>
-        Submit
+        className='flex items-center z-50 disabled:opacity-25 border-none px-8 py-4 mx-2 my-3 uppercase tracking-wide font-bold outline-none cursor-pointer relative'>
+        {formState === 'submitting' ? (
+          <AiOutlineLoading3Quarters className='mx-4 h-6 w-6 animate-spin' />
+        ) : formState === 'success' ? (
+          <AiOutlineHeart className='h-8 w-8' />
+        ) : (
+          'Submit'
+        )}
       </button>
     </form>
   );

@@ -6,7 +6,7 @@ body,
 #__next {
   height: 100%;
   width: 100%;
-  @apply tracking-wider;
+  @apply tracking-wider transition-all duration-300;
 }
 
 /* Start purging... */
