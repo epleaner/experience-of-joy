@@ -18,6 +18,21 @@ body,
   @apply flex flex-wrap h-full w-full justify-center items-center;
 }
 
+.page-transition-enter {
+  opacity: 0;
+}
+.page-transition-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms;
+}
+.page-transition-exit {
+  opacity: 1;
+}
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 1000ms;
+}
+
 .overlay-input-field {
   border-bottom: 0.2rem solid rgba(255, 216, 136, 1);
   border-top: 0.2rem solid rgba(0, 0, 0, 0);
