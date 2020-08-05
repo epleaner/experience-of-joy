@@ -6,6 +6,7 @@ body,
 #__next {
   height: 100%;
   width: 100%;
+  @apply tracking-wider;
 }
 
 /* Start purging... */
@@ -13,8 +14,8 @@ body,
 /* Stop purging. */
 
 /* Write you own custom component styles here */
-.btn-blue {
-  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+.centered {
+  @apply flex flex-wrap h-full w-full justify-center items-center;
 }
 
 .overlay-input-field {

@@ -16,9 +16,7 @@ export default function ExperiencesForm() {
   );
 
   return (
-    <form
-      className='flex flex-wrap h-full w-full justify-center items-center'
-      onSubmit={onSubmit}>
+    <form className='centered' onSubmit={onSubmit}>
       <h1 className='z-50 w-full text-6xl text-center text-accent-1'>
         What does joy feel like for you?
       </h1>
