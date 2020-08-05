@@ -1,12 +1,16 @@
 import { useState, useCallback } from 'react';
 
-export default function IndexPage() {
+export default function ExperiencesForm() {
   const [text, setText] = useState('');
 
   const onSubmit = useCallback(
-    (e) => {
+    async (e) => {
       e.preventDefault();
-      alert('i see' + text);
+      const res = await fetch('/api/experiences', {
+        method: 'PUT',
+        body: text,
+      });
+      console.log(res);
     },
     [text]
   );
