@@ -11,7 +11,7 @@ export default async function handler(req, res) {
         const dbRes = await db.collection('experiences').find({}); // pass empty object as query to return all documents
         const experiences = await dbRes.toArray();
 
-        res.status(200).json({ success: true, data: experiences });
+        res.status(200).json({ success: true, experiences });
       } catch (error) {
         res.status(400).json({ success: false });
       }
@@ -23,7 +23,7 @@ export default async function handler(req, res) {
           .collection('experiences')
           .insertOne({ experience, date: new Date() });
 
-        res.status(201).json({ success: true, data: experience });
+        res.status(201).json({ success: true, experience });
       } catch (error) {
         res.status(400).json({ success: false });
       }
