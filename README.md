@@ -2,7 +2,7 @@
 
 In the body, in the mind, in the heartspace? Does it have a color? A texture? A temperature? A taste? A sound?
 
-## Explore how you and others experience this universal humanness.
+Explore how you and others experience this universal humanness.
 
 ## Development
 
