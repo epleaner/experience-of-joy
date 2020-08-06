@@ -53,7 +53,7 @@ export default function ExperiencesForm() {
         {formState === 'submitting' ? (
           <AiOutlineLoading3Quarters className='mx-4 h-6 w-6 animate-spin' />
         ) : formState === 'success' ? (
-          <AiOutlineHeart className='h-8 w-8' />
+          <AiOutlineHeart className='h-6 w-6' />
         ) : (
           'Submit'
         )}
