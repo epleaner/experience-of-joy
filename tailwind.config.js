@@ -5,6 +5,9 @@ module.exports = {
       colors: {
         'accent-1': '#333',
       },
+      inset: {
+        '1/2': '50%',
+      },
     },
   },
   variants: {

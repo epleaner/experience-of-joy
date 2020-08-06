@@ -33,6 +33,16 @@ body,
   transition: opacity 1000ms;
 }
 
+.loading-indicator-appear,
+.loading-indicator-enter {
+  opacity: 0;
+}
+.loading-indicator-appear-active,
+.loading-indicator-enter-active {
+  opacity: 1;
+  transition: opacity 400ms;
+}
+
 .overlay-input-field {
   border-bottom: 0.2rem solid rgba(255, 216, 136, 1);
   border-top: 0.2rem solid rgba(0, 0, 0, 0);
