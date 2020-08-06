@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <PageTransition
-        timeout={300}
+        timeout={750}
         classNames='h-full w-full page-transition'
         loadingComponent={<Loader />}
         loadingDelay={500}
