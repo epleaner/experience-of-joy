@@ -3,7 +3,7 @@ import { connectToDatabase } from '@utils/db';
 export default async function handler(req, res) {
   const { method } = req;
 
-  const { client, db } = await connectToDatabase();
+  const { db } = await connectToDatabase();
 
   switch (method) {
     case 'GET':
@@ -13,14 +13,15 @@ export default async function handler(req, res) {
 
         res.status(200).json({ success: true, data: experiences });
       } catch (error) {
-        console.log('got an error', error);
         res.status(400).json({ success: false });
       }
       break;
     case 'PUT':
       try {
         const experience = req.body;
-        await db.collection('experiences').insertOne({ experience });
+        await db
+          .collection('experiences')
+          .insertOne({ experience, date: new Date() });
 
         res.status(201).json({ success: true, data: experience });
       } catch (error) {
