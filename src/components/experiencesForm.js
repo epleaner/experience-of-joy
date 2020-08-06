@@ -1,7 +1,9 @@
 import { useState, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
-import { AiOutlineLoading3Quarters, AiOutlineHeart } from 'react-icons/ai';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import { TiHeartFullOutline } from 'react-icons/ti';
 
 export default function ExperiencesForm() {
   const router = useRouter();
@@ -45,19 +47,28 @@ export default function ExperiencesForm() {
         />
         <label className='z-0 overlay-input-label' htmlFor='joy-input' />
       </span>
-      <button
-        type='submit'
-        disabled={submitDisabled}
-        tabIndex={2}
-        className='flex items-center z-50 disabled:opacity-25 border-none px-8 py-4 mx-2 my-3 uppercase tracking-wide font-bold outline-none cursor-pointer relative'>
-        {formState === 'submitting' ? (
-          <AiOutlineLoading3Quarters className='mx-4 h-6 w-6 animate-spin' />
-        ) : formState === 'success' ? (
-          <AiOutlineHeart className='h-6 w-6' />
-        ) : (
-          'Submit'
-        )}
-      </button>
+      <div className='w-full flex justify-center'>
+        <button
+          type='submit'
+          disabled={submitDisabled}
+          tabIndex={2}
+          className='flex items-center z-50 border-none px-8 py-4 mx-2 my-3 uppercase tracking-wide font-bold outline-none cursor-pointer relative transition-all duration-300'>
+          {formState === 'submitting' ? (
+            <AiOutlineLoading3Quarters className='mx-4 h-6 w-6 animate-spin' />
+          ) : (
+            <TiHeartFullOutline
+              className={`h-6 w-6 ${
+                formState === 'success' || !submitDisabled
+                  ? 'text-gold-orange'
+                  : 'text-gray-400'
+              } transition-all duration-300 `}
+            />
+          )}
+        </button>
+      </div>
+      <Link href='/experiences'>
+        <a className='text-xs'>See other experiences</a>
+      </Link>
     </form>
   );
 }
