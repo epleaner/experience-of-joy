@@ -27,10 +27,12 @@ const ExperiencesPage = ({ pageTransitionReadyToEnter }) => {
           </a>
         </Link>
       </nav>
-      <h1 className='text-4xl md:text-6xl text-gray-400 mt-8'>
-        To me, joy feels like...{' '}
-      </h1>
-      <ExperiencesList {...{ experiences }} />
+      <div className='md:px-8'>
+        <h1 className='text-4xl md:text-6xl text-gray-400 mt-8'>
+          To me, joy feels like...{' '}
+        </h1>
+        <ExperiencesList {...{ experiences }} />
+      </div>
     </main>
   );
 };
