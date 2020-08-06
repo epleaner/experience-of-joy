@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 import useExperiences from '@utils/hooks/useExperiences';
 import Error from '@components/Error';
+import BackArrow from '@components/BackArrow';
+import ExperiencesList from '@components/ExperiencesList';
 
 const ExperiencesPage = ({ pageTransitionReadyToEnter }) => {
   const { isLoading, isError, experiences } = useExperiences();
@@ -17,14 +20,17 @@ const ExperiencesPage = ({ pageTransitionReadyToEnter }) => {
 
   return (
     <main className='p-4 md:p-8'>
-      <h1 className='text-4xl md:text-6xl text-gray-400'>
+      <nav>
+        <Link href='/'>
+          <a>
+            <BackArrow />
+          </a>
+        </Link>
+      </nav>
+      <h1 className='text-4xl md:text-6xl text-gray-400 mt-8'>
         To me, joy feels like...{' '}
       </h1>
-      {experiences.map(({ _id, experience }) => (
-        <p key={_id} className='m-8 my-16 text-2xl md:text-4xl'>
-          {experience}
-        </p>
-      ))}
+      <ExperiencesList {...{ experiences }} />
     </main>
   );
 };
