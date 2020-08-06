@@ -4,7 +4,7 @@ const ExperiencesList = ({ experiences }) => {
   return experiences
     .sort((a, b) => a.date < b.date)
     .map(({ _id, experience }) => (
-      <p key={_id} className='m-8 my-16 text-2xl md:text-4xl'>
+      <p key={_id} className='m-8 my-10 md:my-16 text-2xl md:text-4xl'>
         {experience}
       </p>
     ));
